@@ -124,6 +124,19 @@
         controls.update();
         renderer.render(scene, camera);
     }
+    window.addEventListener('resize', onWindowResize);
+
+    function onWindowResize() {
+        // Asegúrate de que el contenedor sigue existiendo
+        if (dagerDefinicion) {
+            // Actualiza el tamaño del renderer
+            renderer.setSize(dagerDefinicion.offsetWidth, dagerDefinicion.offsetHeight);
+
+            // Actualiza la relación de aspecto de la cámara
+            camera.aspect = dagerDefinicion.offsetWidth / dagerDefinicion.offsetHeight;
+            camera.updateProjectionMatrix();
+        }
+    }
 
     animate();
 </script>
