@@ -1,0 +1,129 @@
+
+<div id="dagerDefinicion" class="w-full h-full z-10 absolute"></div>
+
+<script>
+    import * as THREE from "three";
+    import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+    const dagerDefinicion = document.getElementById("dagerDefinicion");
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+        3.2,
+        dagerDefinicion.offsetWidth / dagerDefinicion.offsetHeight,
+        0.1,
+        1000
+    );
+    camera.position.z = 20;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(dagerDefinicion.offsetWidth, dagerDefinicion.offsetHeight);
+    renderer.setClearColor(0x000000, 0);
+    dagerDefinicion?.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.minPolarAngle = Math.PI / 2;
+    controls.maxPolarAngle = Math.PI / 2;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+
+    let modelCat, modelGuitar, modelBooks, modelMouse, modelPickle;
+
+    const loader = new GLTFLoader();
+    
+    var newMaterial = new THREE.MeshNormalMaterial({flatShading: true});
+    const coloredMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+
+    loader.load('/cat.gltf', (gltf) => {
+        modelCat = gltf.scene;
+        modelCat.position.set(0, -.3, 0);
+        modelCat.traverse((o) => {
+            if (o.isMesh) o.material = newMaterial;
+        });
+        scene.add(modelCat);
+    });
+    loader.load('/guitar.gltf', (gltf) => {
+        modelGuitar = gltf.scene;
+        modelGuitar.position.set(0, -.5, 0);
+        modelGuitar.rotation.y += 1.5;
+        modelGuitar.traverse((o) => {
+            if (o.isMesh) o.material = newMaterial;
+        });
+        scene.add(modelGuitar);
+    });
+    loader.load('/books.gltf', (gltf) => {
+        modelBooks = gltf.scene;
+        modelBooks.position.set(0, -.3, 0);
+        modelBooks.rotation.y += 2.8;
+        modelBooks.traverse((o) => {
+            if (o.isMesh) o.material = newMaterial;
+        });
+        scene.add(modelBooks);
+    });
+    loader.load('/mouse.gltf', (gltf) => {
+        modelMouse = gltf.scene;
+        modelMouse.position.set(0, -.4, 0);
+        modelMouse.rotation.y += 3.9;
+        modelMouse.traverse((o) => {
+            if (o.isMesh) o.material = newMaterial;
+        });
+        scene.add(modelMouse);
+    });
+    loader.load('/pickle.gltf', (gltf) => {
+        modelPickle = gltf.scene;
+        modelPickle.position.set(0, -.4, 0); 
+        modelPickle.rotation.y += 5;
+        modelPickle.traverse((o) => {
+            if (o.isMesh) o.material = newMaterial;
+        });
+        scene.add(modelPickle);
+    });
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, .5);
+    const pointLight = new THREE.PointLight(0xe49c00, 5);
+    pointLight.position.set(0, 0, 0);
+    const sphereGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+    const emissiveMaterial = new THREE.MeshStandardMaterial({
+        color: 0xff0000,         
+        transparent: true,       
+        opacity: 0.1,            
+        emissive: 0xffffff,      
+        emissiveIntensity: 500   
+    });
+    const lightSphere = new THREE.Mesh(sphereGeometry, emissiveMaterial);
+    lightSphere.position.copy(pointLight.position);
+    scene.add(ambientLight);
+    scene.add(pointLight);
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        if (modelCat) {
+            modelCat.rotation.y += 0.01;
+        }
+        
+        if (modelGuitar) {
+            modelGuitar.rotation.y += 0.01; 
+        }
+
+        if (modelBooks) {
+            modelBooks.rotation.y += 0.01;
+        }
+
+        if (modelMouse) {
+            modelMouse.rotation.y += 0.01;
+        }
+
+        if (modelPickle) {
+            modelPickle.rotation.y += 0.01;
+        }
+
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>

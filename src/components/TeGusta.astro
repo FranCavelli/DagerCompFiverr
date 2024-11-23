@@ -1,0 +1,14 @@
+<div class="text-center">
+    <p class="text-yellow-300" id="teGusta">¿Te gusta la página?</p>
+    <button class="text-yellow-300 p-2 rounded-lg cursor-pointer" id="si">Si</button>
+    <button class="text-yellow-300 p-2 rounded-lg cursor-pointer" id="no">No</button>
+</div>
+<script>
+    const si = document.getElementById('si');
+    const No = document.getElementById('no');
+    const teGusta = document.getElementById('teGusta');
+    si.addEventListener('click', () => {
+        teGusta.innerHTML = 'Te garcho?😮';
+        no.innerHTML = '';
+    });
+</script>

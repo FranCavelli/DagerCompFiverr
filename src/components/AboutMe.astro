@@ -1,0 +1,65 @@
+---
+import Card from "./Card.astro";
+---
+
+<section id="aboutMe" class="min-w-screen min-h-screen w-full flex flex-col items-center py-2 px-2 sm:px-20 pb-10">
+    <h4 class="text-4xl font-bold mb-4 mt-6 text-gray-50">Sobre mí</h4>
+    <div class="flex flex-col items-center justify-center sm:flex-row-reverse sm:w-2/3 sm:gap-8" id="sobremi">
+        <div class="w-1/2 sm:w-1/4 rounded-xl bg-blue-200 overflow-hidden my-4">
+            <img src="/bg1.webp" alt="Dager" class="w-full">
+        </div>
+        <div class="w-3/4">
+            <p class="w-full sm:w-3/4 text-xl mb-2 text-gray-200 sm:text-start">Soy Mariano, también conocido como <strong>Dot Dager</strong>. Creador de contenido, apasionado por la programación, la filosofía, las guitarras, los gatos y los pepinillos. Este espacio es una mezcla de mis intereses y perspectivas, donde podrás ver cómo se unen la creatividad y la reflexión.</p>
+            <p class="w-full sm:w-3/4 text-xl mb-2 text-gray-200 sm:text-start">Me gusta relacionar cualquier cosa con pitos, deberle plata a mis suscriptores, tener 200 gatos y si Dios existiera seguramente tendria mi aspecto.</p>
+            <p class="w-full sm:w-3/4 text-xl text-gray-200 sm:text-start">Tengo 50 años de experiencia así que cualquier cosa que diga va a tener sentido.</p>
+        </div>
+    </div>
+    <div class="w-full flex gap-2 mt-10 sm:mt-20">
+        <Card
+		    title="Dot Dager"
+            subs="87.8 k"
+            body="Canal de programación"
+            img="/youtube/programming.webp"
+            href="https://www.youtube.com/@DotDager" 
+        />
+        <Card
+		    title="Dager Music"
+            subs="1.57 K"
+            body="Canal de musica"
+            img="/youtube/music.webp"
+            href="https://www.youtube.com/@DagerMusic" 
+        />
+        <Card
+		    title="El Antro de Dager"
+            subs="3.26 K"
+            body="Canal de filosofia, reseñas y cortos como la mia."
+            img="/youtube/filosofy.webp"
+            href="https://www.youtube.com/@ElAntroDeDager" 
+        />
+    </div>
+</section>
+<style>
+    #aboutMe{
+        background:#ffb625ce;
+    }
+    strong{
+        color: #4E54C8;
+        font-weight: 900;
+    }
+    #sobremi{
+		view-timeline-name: --image;
+		view-timeline-axis: block;
+		animation-timeline: --image;
+		animation-name: show;
+    }
+	@keyframes show {
+		0% {
+			opacity: 0;
+			transform: translateY(-50%);
+		}
+		50% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

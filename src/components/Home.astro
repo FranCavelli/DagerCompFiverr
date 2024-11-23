@@ -1,0 +1,82 @@
+---
+import Carrusel from "./Carrusel.astro";
+
+---
+
+<section id="home" class="min-w-screen min-h-screen h-full w-full flex flex-col items-center justify-center">
+    <div class="flex flex-col sm:flex-row sm:w-1/2 justify-center items-center w-full">
+        <div class="w-full text-center">
+            <div class="my-4 w-full flex flex-col items-center sm:items-start">
+                <h2 class="text-gray-200">Bienvenido a</h2>
+                <h1 class="text-6xl sm:text-8xl my-4 sm:my-8"><strong>Dot Dager</strong></h1>
+                <h3 class="text-2xl w-3/4 sm:text-start">Programador, filosofo, artista, amante de gatos, creador de contenido y catador de pepinos</h3>
+            </div>
+            <div class="socialMedia w-full flex items-center justify-center sm:justify-start">
+                <a href="https://www.instagram.com/dager.32/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@DotDager" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://github.com/MarianoVilla" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.tiktok.com/@elantrodedager" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://tr.ee/E5GUczrrzX" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+            </div>
+        </div>
+        <div class="w-full h-96 relative">
+            <Carrusel />
+        </div>
+    </div>
+    <a href="#aboutMe" class="text-lg text-[#e4e1dc] mt-8" id="homeScroll"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<style>
+    h1{
+        font-family: "Source Sans 3", Sans-serif;
+        object-fit: initial;
+        font-weight: 700;
+        color: #ffb625;
+        line-height: 2.5rem;
+        filter: drop-shadow(0 0 0.5rem #ffb6258c);
+    }
+    h3{
+        color: #d4cec2;
+        font-weight: 500;
+        font-family: system-ui;
+    }
+    .socialMedia{
+        font-size: 1rem;
+        margin-top: 1rem;
+        i{
+            margin: 0 1rem;
+            cursor: pointer;
+            background: #e4e1dc;
+            padding: .5rem;
+            border-radius: 50%;
+            transition: all .3s ease;
+            &:hover{
+                transform: scale(1.2);
+                color: #ffb625;
+            }
+        }
+    }
+    p{
+        font-family: "Source Sans 3", Sans-serif;
+    }
+    #homeScroll{
+        animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(1rem);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+
+    #dager{
+        mask-image: linear-gradient(black 60%, transparent);
+        border-radius: 50%;
+    }
+
+</style>

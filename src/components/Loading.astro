@@ -1,0 +1,27 @@
+<div class="fixed w-screen h-screen bg-black z-50 flex items-center justify-center">
+    <p class="text-white">Holi</p>
+</div>
+
+<style>
+    p {
+        font-family: monospace;
+    }
+
+    .fade-out {
+        opacity: 0;
+        transition: opacity 1s ease-out; /* Controla la duración y el tipo de transición */
+    }
+</style>
+
+<script>
+    setTimeout(() => {
+        // Aplicamos la clase fade-out para iniciar la transición
+        document.querySelector('.fixed').classList.add('fade-out');
+        
+        // Después de que la transición termine, eliminamos el div y restauramos el scroll
+        setTimeout(() => {
+            document.querySelector('.fixed').remove();
+            document.body.style.overflow = 'auto';
+        }, 1000);  // Esperamos el mismo tiempo que la duración de la transición
+    }, 2000);  // Tiempo antes de que inicie la desaparición
+</script>

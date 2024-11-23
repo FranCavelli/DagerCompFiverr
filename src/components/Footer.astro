@@ -1,0 +1,54 @@
+---
+import TeGusta from "./TeGusta.astro";
+---
+
+<footer class="min-w-screen flex flex-col items-center justify-center">
+    <div class="bg-[#3644579d] py-2 w-full flex items-center justify-center flex-col">
+        <div class="gap-4 text-blue-100 flex quicklink">
+            <a href="#home">Inicio</a>
+            <a href="#aboutMe">Sobre mí</a>
+            <a href="#LastVideos">Ultimos videos</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#contact">Cotnactame</a>
+        </div>
+        <div class="socialMedia flex items-center justify-center sm:justify-start mb-2">
+            <a href="https://www.instagram.com/dager.32/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@DotDager" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com/MarianoVilla" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.tiktok.com/@elantrodedager" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://tr.ee/E5GUczrrzX" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+        </div>
+        <TeGusta />
+    </div>
+    <div class="w-full flex flex-col items-center bg-[#141e2b9d] justify-center py-4">
+        <p class="text-gray-50">© 2024 - Dalto pto</p>
+    </div>
+</footer>
+
+<style>
+    .socialMedia{
+        font-size: 1rem;
+        margin-top: 1rem;
+        i{
+            margin: 0 1rem;
+            cursor: pointer;
+            background: #e4e1dc;
+            padding: .5rem;
+            border-radius: 50%;
+            transition: all .3s ease;
+            &:hover{
+                transform: scale(1.2);
+                color: #ffb625;
+            }
+        }
+    }
+    .quicklink{
+        a{
+            transition: all .3s ease;
+            &:hover{
+                transform: scale(1.1);
+                color: #ffb625;
+            }
+        }
+    }
+</style>

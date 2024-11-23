@@ -1,0 +1,43 @@
+<button id="toggle-button" class="fixed bottom-0 right-0 bg-blue-200 p-1 rounded-full me-2 mb-2 cursor-pointer">
+    <i id="icon" class="fa-solid fa-music border-[#4E54C8] text-[#4E54C8] border-2 p-1 aspect-square rounded-full text-sm"></i>
+  </button>
+  
+  <audio id="music-player" muted>
+    <source src="/html.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const musicPlayer = document.getElementById('music-player');
+      const toggleButton = document.getElementById('toggle-button');
+      const icon = document.getElementById('icon');
+  
+      musicPlayer.play();
+      musicPlayer.volume = 0.1;
+  
+      const updateIcon = () => {
+        if (musicPlayer.paused) {
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+        } else {
+          icon.classList.remove('fa-play');
+          icon.classList.remove('fa-music');
+          icon.classList.add('fa-pause');
+        }
+      };
+  
+      toggleButton.addEventListener('click', () => {
+        if (musicPlayer.paused) {
+          musicPlayer.muted = false; // Desactiva el mute si está pausado
+          musicPlayer.play();
+        } else {
+          musicPlayer.pause();
+        }
+        updateIcon();
+      });
+  
+      musicPlayer.addEventListener('ended', updateIcon);
+    });
+  </script>
+  
