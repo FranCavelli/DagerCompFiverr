@@ -4,12 +4,12 @@ import Carrusel from "./Carrusel.astro";
 ---
 
 <section id="home" class="min-w-screen min-h-screen h-full w-full flex flex-col items-center justify-center">
-    <div class="flex flex-col sm:flex-row sm:w-1/2 justify-center items-center w-full">
+    <div class="flex flex-col sm:flex-row sm:w-2/3 justify-center items-center w-full">
         <div class="w-full text-center">
             <div class="my-4 w-full flex flex-col items-center sm:items-start">
                 <h2 class="text-gray-200">Bienvenido a</h2>
-                <h1 class="text-6xl sm:text-8xl my-4 sm:my-8 sm:text-start"><strong>Dot Dager</strong></h1>
-                <h3 class="text-2xl w-3/4 sm:text-start">Programador, filosofo, artista, amante de gatos, creador de contenido y catador de pepinos</h3>
+                <h1 class="text-6xl sm:text-9xl my-4 sm:my-8 sm:text-start text-nowrap"><strong>Dot<span>.</span> Dager</strong></h1>
+                <h3 class="text-2xl w-3/4 sm:text-start sm:mt-8">Programador, filosofo, artista, amante de gatos, creador de contenido y catador de pepinos</h3>
             </div>
             <div class="socialMedia w-full flex items-center justify-center sm:justify-start">
                 <a href="https://www.instagram.com/dager.32/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -28,12 +28,14 @@ import Carrusel from "./Carrusel.astro";
 
 <style>
     h1{
-        font-family: "Source Sans 3", Sans-serif;
+        font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
         object-fit: initial;
         font-weight: 700;
-        color: #ffb625;
+        color: #fff7e6;
         line-height: 2.5rem;
-        filter: drop-shadow(0 0 0.5rem #ffb6258c);
+        span{
+            color: #ffb625;
+        }
     }
     h3{
         color: #d4cec2;
