@@ -37,7 +37,7 @@
     var newMaterial = new THREE.MeshNormalMaterial({flatShading: true});
     const coloredMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
-    loader.load('/cat.gltf', (gltf) => {
+    loader.load('cat.gltf', (gltf) => {
         modelCat = gltf.scene;
         modelCat.position.set(0, -.3, 0);
         modelCat.traverse((o) => {
@@ -45,7 +45,7 @@
         });
         scene.add(modelCat);
     });
-    loader.load('/guitar.gltf', (gltf) => {
+    loader.load('guitar.gltf', (gltf) => {
         modelGuitar = gltf.scene;
         modelGuitar.position.set(0, -.5, 0);
         modelGuitar.rotation.y += 1.5;
@@ -54,7 +54,7 @@
         });
         scene.add(modelGuitar);
     });
-    loader.load('/books.gltf', (gltf) => {
+    loader.load('books.gltf', (gltf) => {
         modelBooks = gltf.scene;
         modelBooks.position.set(0, -.3, 0);
         modelBooks.rotation.y += 2.8;
@@ -63,7 +63,7 @@
         });
         scene.add(modelBooks);
     });
-    loader.load('/mouse.gltf', (gltf) => {
+    loader.load('mouse.gltf', (gltf) => {
         modelMouse = gltf.scene;
         modelMouse.position.set(0, -.4, 0);
         modelMouse.rotation.y += 3.9;
@@ -72,7 +72,7 @@
         });
         scene.add(modelMouse);
     });
-    loader.load('/pickle.gltf', (gltf) => {
+    loader.load('pickle.gltf', (gltf) => {
         modelPickle = gltf.scene;
         modelPickle.position.set(0, -.4, 0); 
         modelPickle.rotation.y += 5;
